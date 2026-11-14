@@ -122,6 +122,28 @@ a{color:inherit}
 .close .ref{font-size:13px;opacity:.7}
 .close .bye{margin-top:22px;font-size:14px;opacity:.85}
 
+
+/* ===== Flip cards (tap to turn) ===== */
+.flip{perspective:1400px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flip .in3d{display:grid;transition:transform .7s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.flip.on .in3d{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:inherit;overflow:hidden;display:flex;flex-direction:column;background:var(--card)}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:#fff;padding:18px 18px 16px}
+.face .ph{flex:1 1 auto;min-height:150px}
+.face .ph img{width:100%;height:100%;object-fit:cover}
+.back h5{font-family:var(--display);font-size:18px;color:var(--accent);font-weight:500;margin-bottom:8px}
+.back p{font-size:15.5px;line-height:1.85;color:#eef0f3;margin-bottom:8px}
+.back .ctx{font-size:14px;opacity:.8;border-right:3px solid var(--accent);padding-right:10px;margin:6px 0 10px}
+.back .links{margin-top:4px;margin-bottom:10px}
+.back a{color:var(--accent);text-decoration:none;font-size:13.5px}
+.hint{position:absolute;top:10px;left:10px;z-index:2;background:rgba(15,28,46,.72);color:#fff;font-size:12px;padding:3px 10px;border-radius:30px;backdrop-filter:blur(4px)}
+.back .hint{position:static;align-self:flex-start;margin-top:auto;background:rgba(255,255,255,.12)}
+.face.front{position:relative}
+.feature.flip,.mini.flip{background:none;box-shadow:none;overflow:visible}
+.feature.flip .face,.mini.flip .face{box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(15,28,46,.35);border-radius:20px}
+.mini.flip .face{border-radius:18px}
+.feature .tx p+p{margin-top:6px}
+
 /* reveal on scroll */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
@@ -181,61 +203,122 @@ a{color:inherit}
   </div>
 
   <p class="body rv">وأعلن الحرس الثوري الإيراني صباح السبت أن ناقلتين أصيبتا بألغام في المضيق، بينما يتمسك الطرفان بشروطهما: طهران تربط إعادة فتح الممر بمطالبها، وواشنطن تُبقي حصارها البحري. ويبقى أثر ذلك أقرب إلينا مما يبدو، في أسعار الطاقة والشحن وأمن الخليج.</p>
+  <p class="body rv">أما النفط فتراجع برنت نحو ٢٫٤٪ هذا الأسبوع بعد هبوط بنحو ١٦٪ في الأسبوع الذي قبله، مع إعلان واشنطن أنها ستُبقي حصارها البحري على إيران.</p>
   <p class="src">المصادر: <a href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز</a> · <a href="https://www.arabnews.com/middle-east/iran-guards-say-two-oil-tankers-hit-by-mines-in-hormuz-3011782">عرب نيوز / فرانس برس</a></p>
 </section>
 
-<!-- ===== IN BRIEF ===== -->
-<div class="sec"><h3>باختصار</h3></div>
+<!-- ===== MAIN STORIES (longer, tap to flip) ===== -->
+<div class="sec"><h3>أبرز القصص</h3></div>
 
-<article class="feature rv">
-  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/1280px-Riyadh_Skyline.jpg" alt="الرياض"></div>
-  <div class="tx">
-    <span class="tag t-sa">🇸🇦 السعودية</span>
-    <h4>الرياض تضع هجمات الحوثيين على طاولة المبعوث الصيني</h4>
-    <p>استقبل وزير الخارجية الأمير فيصل بن فرحان المبعوث الصيني للشرق الأوسط، وتركّز اللقاء على الهجمات التي طالت مواقع مدنية في المملكة؛ وبكين تدعو إلى الحوار وخفض التصعيد. <a class="more" href="https://www.spa.gov.sa/en/N2725798">واس ←</a></p>
-    <div class="cr">صورة: Riyadh Skyline · CC BY-SA 4.0 · ويكيميديا</div>
+<article class="feature flip rv" tabindex="0" role="button" aria-label="اقلب البطاقة لمزيد من التفاصيل">
+ <div class="in3d">
+  <div class="face front">
+    <span class="hint">↻ اضغط للمزيد</span>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/1280px-Riyadh_Skyline.jpg" alt="الرياض"></div>
+    <div class="tx">
+      <span class="tag t-sa">🇸🇦 السعودية</span>
+      <h4>الرياض تضع هجمات الحوثيين على طاولة المبعوث الصيني</h4>
+      <p>استقبل وزير الخارجية الأمير فيصل بن فرحان المبعوث الصيني للشرق الأوسط تشاي جيون في الرياض، وتصدّرت الهجمات التي طالت مواقع مدنية داخل المملكة جدول اللقاء.</p>
+      <p>بكين، صاحبة العلاقات مع الرياض وطهران معاً، دعت إلى الحوار وخفض التصعيد في اليمن والبحر الأحمر.</p>
+      <div class="cr">صورة: Riyadh Skyline · CC BY-SA 4.0 · ويكيميديا</div>
+    </div>
   </div>
+  <div class="face back">
+    <h5>ما وراء الخبر</h5>
+    <p>جاء اللقاء بعد أسبوع حافل: سقطت شظايا اعتراض على مبنى إداري لأرامكو في الرياض يوم ٨ نوفمبر دون إصابات، ثم سقط حطام صاروخين اعتُرضا في منطقة مكة المكرمة يوم ١١ نوفمبر، ولم تُذكر إصابات، بفضل الله.</p>
+    <p class="ctx">تحدثت تقارير يمنية نقلاً عن وسائل إعلام سعودية عن بحث اتفاق من ثلاث نقاط عبر الوساطة الصينية، ولم يصدر تأكيد رسمي لذلك.</p>
+    <p>لماذا يهمنا؟ الصين أكبر مشترٍ للنفط الخليجي ولها نفوذ لدى طهران، فدخولها على الخط قد يكون أقصر طريق لتهدئة تحمي المدن والمنشآت.</p>
+    <div class="links"><a href="https://www.spa.gov.sa/en/N2725798">واس ←</a> · <a href="https://news.cgtn.com/news/2026-11-13/Chinese-envoy-calls-for-dialogue-de-escalation-in-Yemen-Red-Sea-1S2ifvx62D6/p.html">CGTN ←</a></div>
+    <span class="hint">↻ رجوع</span>
+  </div>
+ </div>
 </article>
 
+<article class="feature flip rv" tabindex="0" role="button" aria-label="اقلب البطاقة لمزيد من التفاصيل">
+ <div class="in3d">
+  <div class="face front">
+    <span class="hint">↻ اضغط للمزيد</span>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg/1280px-Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg" alt="خيام غارقة في دير البلح"></div>
+    <div class="tx">
+      <span class="tag t-mw">🕌 العالم الإسلامي</span>
+      <h4>أمطار الشتاء تُغرق خيام النازحين في غزة</h4>
+      <p>وثّقت الأمم المتحدة أضرار السيول في مخيمات النازحين مع أول منخفض شتوي، فيما لا تزال مستلزمات الشتاء عالقة على المعابر.</p>
+      <p class="dua">اللهم كن لإخواننا في غزة، وآوِ مشرّدهم، وارفع عنهم البرد والجوع.</p>
+      <div class="cr">صورة: Ashraf Amra · CC BY-SA 3.0 IGO</div>
+    </div>
+  </div>
+  <div class="face back">
+    <h5>ما وراء الخبر</h5>
+    <p>انتقد منسّق الإغاثة الأممي توم فليتشر تأخير إدخال الإمدادات، ورفض انتظار تشكيل الحكومة الإسرائيلية الجديدة قائلاً إن ذلك «ليس عذراً مقبولاً».</p>
+    <p>وكان «مجلس السلام» الذي تقوده واشنطن للإشراف على خطة غزة قد طالب إسرائيل في ٩ نوفمبر بالسماح بدخول المواد الأساسية.</p>
+    <p class="ctx">وفي ١١ نوفمبر قُتل ستة أشخاص بغارة على قسم الجراحة في مستشفى ناصر بخان يونس، وفق الأمم المتحدة.</p>
+    <div class="links"><a href="https://ochaopt.org/content/humanitarian-situation-report-heavy-rains-gaza-strip-8-november-2026">أوتشا ←</a> · <a href="https://thenationalnews.com/news/mena/2026/11/11/un-aid-chief-criticises-delays-in-gaza-relief-and-rejects-waiting-for-israel-to-form-government">ذا ناشونال ←</a></div>
+    <span class="hint">↻ رجوع</span>
+  </div>
+ </div>
+</article>
+
+<!-- ===== IN BRIEF (short, tap to flip) ===== -->
+<div class="sec"><h3>باختصار</h3></div>
+
 <div class="grid">
-  <article class="mini rv">
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Doha_Skyline_01.jpg/960px-Doha_Skyline_01.jpg" alt="الدوحة"></div>
-    <div class="tx">
-      <span class="tag t-me">🌍 المنطقة</span>
-      <h4>تركيا وقطر: من يمسّ أحدنا يمسّ الآخر</h4>
-      <p>اتفاق دفاع مشترك وُقّع في إسطنبول يلزم البلدين برد موحّد على أي هجوم. <a class="more" href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز ←</a></p>
-      <div class="cr">صورة: Zairon · CC BY 4.0</div>
+  <article class="mini flip rv" tabindex="0" role="button">
+   <div class="in3d">
+    <div class="face front">
+      <span class="hint">↻</span>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Doha_Skyline_01.jpg/960px-Doha_Skyline_01.jpg" alt="الدوحة"></div>
+      <div class="tx">
+        <span class="tag t-me">🌍 المنطقة</span>
+        <h4>تركيا وقطر: من يمسّ أحدنا يمسّ الآخر</h4>
+        <p>اتفاق دفاع مشترك وُقّع في إسطنبول.</p>
+        <div class="cr">صورة: Zairon · CC BY 4.0</div>
+      </div>
     </div>
+    <div class="face back">
+      <h5>التفاصيل</h5>
+      <p>وُقّع الاتفاق في ١٣ نوفمبر، ويلزم البلدين برد موحّد على أي هجوم خارجي، ويوسّع المناورات والتصنيع العسكري والتدريب. تفاصيل التنفيذ لم تُعلن بعد.</p>
+      <div class="links"><a href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز ←</a></div>
+    </div>
+   </div>
   </article>
-  <article class="mini rv">
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/FLAIR_MRI_of_cerebral_infarction.png" alt="رنين مغناطيسي لجلطة دماغية"></div>
-    <div class="tx">
-      <span class="tag t-sci">🔬 علوم وطب</span>
-      <h4>دواء جديد يقلّل تكرار الجلطة الدماغية</h4>
-      <p>أقرّت FDA عقار «أسونديكسيان»، أول مثبّط للعامل XIa، لمرضى الجلطة الحديثة. <a class="more" href="https://www.tctmd.com/news/asundexian-first-factor-xia-inhibitor-gain-fda-approval">TCTMD ←</a></p>
-      <div class="cr">صورة: CC BY 4.0 · ويكيميديا</div>
+
+  <article class="mini flip rv" tabindex="0" role="button">
+   <div class="in3d">
+    <div class="face front">
+      <span class="hint">↻</span>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/FLAIR_MRI_of_cerebral_infarction.png" alt="رنين مغناطيسي لجلطة دماغية"></div>
+      <div class="tx">
+        <span class="tag t-sci">🔬 علوم وطب</span>
+        <h4>دواء جديد يقلّل تكرار الجلطة الدماغية</h4>
+        <p>FDA تقرّ أول مثبّط للعامل XIa.</p>
+        <div class="cr">صورة: CC BY 4.0 · ويكيميديا</div>
+      </div>
     </div>
+    <div class="face back">
+      <h5>التفاصيل</h5>
+      <p>أعلنت باير في ٩ نوفمبر موافقة FDA على «أسونديكسيان» للبالغين بعد جلطة إقفارية حديثة غير قلبية المنشأ أو نوبة إقفارية عابرة عالية الخطورة، مع مضادات الصفائح. استندت الموافقة إلى دراسة OCEANIC-STROKE.</p>
+      <div class="links"><a href="https://www.tctmd.com/news/asundexian-first-factor-xia-inhibitor-gain-fda-approval">TCTMD ←</a></div>
+    </div>
+   </div>
   </article>
 </div>
 
-<article class="wide rv">
-  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kingdom_Centre_Riyadh_2024.jpeg/500px-Kingdom_Centre_Riyadh_2024.jpeg" alt="برج المملكة"></div>
-  <div class="tx">
-    <span class="tag t-sa">🇸🇦 السعودية</span>
-    <h4>مبادرة مستقبل الاستثمار تنتقل إلى ٢٠٢٧</h4>
-    <p>الموعد الجديد ٢٥–٢٨ أكتوبر ٢٠٢٧ في الرياض. <a class="more" href="https://gulfnews.com/world/gulf/saudi/saudi-arabia-announces-new-dates-for-postponed-fii10-investment-conference-1.500745561">غلف نيوز ←</a></p>
+<article class="mini flip rv" tabindex="0" role="button" style="margin:0 20px 18px">
+ <div class="in3d">
+  <div class="face front" style="flex-direction:row">
+    <div class="ph" style="width:38%;flex:none;min-height:0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kingdom_Centre_Riyadh_2024.jpeg/500px-Kingdom_Centre_Riyadh_2024.jpeg" alt="برج المملكة"></div>
+    <div class="tx">
+      <span class="tag t-sa">🇸🇦 السعودية</span>
+      <h4>مبادرة مستقبل الاستثمار تنتقل إلى ٢٠٢٧</h4>
+      <p>الموعد الجديد ٢٥–٢٨ أكتوبر ٢٠٢٧ في الرياض. <span style="color:var(--accent-2)">↻</span></p>
+    </div>
   </div>
-</article>
-
-<article class="feature rv">
-  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg/1280px-Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg" alt="خيام غارقة في دير البلح"></div>
-  <div class="tx">
-    <span class="tag t-mw">🕌 العالم الإسلامي</span>
-    <h4>أمطار الشتاء تُغرق خيام النازحين في غزة</h4>
-    <p>وثّقت الأمم المتحدة أضرار السيول في المخيمات، وانتقد منسّق الإغاثة توم فليتشر تأخير إدخال مستلزمات الشتاء. <a class="more" href="https://ochaopt.org/content/humanitarian-situation-report-heavy-rains-gaza-strip-8-november-2026">أوتشا ←</a></p>
-    <p class="dua">اللهم كن لإخواننا في غزة، وآوِ مشرّدهم، وارفع عنهم البرد والجوع.</p>
-    <div class="cr">صورة: Ashraf Amra · CC BY-SA 3.0 IGO</div>
+  <div class="face back">
+    <h5>التفاصيل</h5>
+    <p>كان المؤتمر مقرراً في ٢٦–٢٩ أكتوبر ٢٠٢٦، وأُجّل مرة سابقة بعد هجوم حوثي على مطار الرياض. لم يُذكر سبب للتأجيل الأخير.</p>
+    <div class="links"><a href="https://gulfnews.com/world/gulf/saudi/saudi-arabia-announces-new-dates-for-postponed-fii10-investment-conference-1.500745561">غلف نيوز ←</a></div>
   </div>
+ </div>
 </article>
 
 <!-- ===== EXTRA ===== -->
@@ -271,6 +354,12 @@ a{color:inherit}
     el.querySelectorAll('.bar i').forEach(function(i){i.style.width=i.dataset.w+'%'});
     var arc=el.querySelector('#arc');if(arc){var c=2*Math.PI*72;arc.style.strokeDasharray=(c*0.65)+' '+c}
   }
+
+  document.querySelectorAll('.flip').forEach(function(c){
+    function t(e){if(e.target.closest('a'))return;c.classList.toggle('on')}
+    c.addEventListener('click',t);
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();c.classList.toggle('on')}});
+  });
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){els.forEach(fire);return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target)}})},{threshold:.1});
