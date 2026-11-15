@@ -148,6 +148,58 @@ a{color:inherit}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== v2 (2026-11-15): flip fix, textured background, wide screens ===== */
+/* flip: hide the face that is turned away (blur/transform layers ignore backface-visibility) */
+.hint{backdrop-filter:none;-webkit-backdrop-filter:none}
+.flip .face{transition:visibility 0s linear .3s}
+.flip.on .face.front,.flip:not(.on) .face.back{visibility:hidden}
+.face.back{justify-content:center}
+.back .hint{margin-top:14px}
+/* background: soft colour glows + faint eight-point-star pattern in this week's colours */
+body{background:
+  radial-gradient(900px 520px at 100% 0,color-mix(in srgb,var(--accent-2) 22%,transparent),transparent 70%),
+  radial-gradient(800px 600px at 0 55%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%),
+  radial-gradient(700px 500px at 90% 100%,color-mix(in srgb,var(--accent-2) 18%,transparent),transparent 70%),
+  var(--paper);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--ink);opacity:.07;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='black' stroke-width='1.2'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 0l15 15M64 0L49 15M0 64l15-15M64 64L49 49'/%3E%3C/g%3E%3C/svg%3E") 0 0/64px 64px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='black' stroke-width='1.2'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 0l15 15M64 0L49 15M0 64l15-15M64 64L49 49'/%3E%3C/g%3E%3C/svg%3E") 0 0/64px 64px}
+.wrap{position:relative;z-index:0}
+.sec h3{color:var(--ink)}
+.sec::after{background:linear-gradient(to left,var(--accent),transparent)}
+/* layout containers */
+.feats .feature{margin:0 20px 18px}
+.mini.row{margin:0}
+.mini.row .face.front{flex-direction:row}
+.mini.row .face.front .ph{width:38%;flex:none;min-height:120px}
+.grid .mini.row{grid-column:1/-1}
+/* wide screens (Mac, iPad landscape) */
+@media (min-width:900px){
+  body{font-size:18px}
+  .wrap{max-width:1180px;padding:28px 28px 40px}
+  .cover{border-radius:28px 28px 0 0;min-height:min(80vh,720px)}
+  .cover.type{min-height:min(76vh,700px)}
+  .mast,.cover-story{padding:34px 44px}
+  .cover-story{max-width:900px}
+  .cover.type .word{padding:0 44px;font-size:clamp(150px,16vw,230px)}
+  .lead{border-radius:0 0 28px 28px;padding:44px 44px 50px;display:grid;grid-template-columns:1.05fr 1fr;column-gap:56px;align-items:start}
+  .lead>h2{grid-column:1/-1;font-size:26px}
+  .lead .lv{grid-column:1}
+  .lead .lt{grid-column:2}
+  .lead .lt .body:first-child{margin-top:0}
+  .sec{padding:44px 4px 18px}
+  .feats{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .feats .feature{margin:0}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:0}
+  .grid .mini.row{grid-column:auto}
+  .mini.row .face.front{flex-direction:column}
+  .mini.row .face.front .ph{width:auto;min-height:170px}
+  .extra{margin:40px auto 0;max-width:980px;display:grid;grid-template-columns:2fr 3fr}
+  .extra .ph{height:auto;min-height:100%}
+  .extra .tx{padding:28px 32px}
+  .close{border-radius:28px;margin-top:44px}
+}
 </style>
 </head>
 <body>
@@ -175,6 +227,7 @@ a{color:inherit}
 <!-- ===== LEAD VISUAL ===== -->
 <section class="lead">
   <h2>الأرقام تحكي القصة</h2>
+  <div class="lv">
   <div class="big rv">
     <div class="ring">
       <svg width="170" height="170" viewBox="0 0 170 170">
@@ -201,15 +254,18 @@ a{color:inherit}
     <div class="tile"><b>١٦٣</b><span>حادثة ملاحية مرتبطة بالحرب منذ فبراير</span></div>
     <div class="tile"><b>٩٥٫٥$</b><span>برنت · ثاني تراجع أسبوعي على التوالي</span></div>
   </div>
-
+  </div>
+  <div class="lt">
   <p class="body rv">وأعلن الحرس الثوري الإيراني صباح السبت أن ناقلتين أصيبتا بألغام في المضيق، بينما يتمسك الطرفان بشروطهما: طهران تربط إعادة فتح الممر بمطالبها، وواشنطن تُبقي حصارها البحري. ويبقى أثر ذلك أقرب إلينا مما يبدو، في أسعار الطاقة والشحن وأمن الخليج.</p>
   <p class="body rv">أما النفط فتراجع برنت نحو ٢٫٤٪ هذا الأسبوع بعد هبوط بنحو ١٦٪ في الأسبوع الذي قبله، مع إعلان واشنطن أنها ستُبقي حصارها البحري على إيران.</p>
   <p class="src">المصادر: <a href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز</a> · <a href="https://www.arabnews.com/middle-east/iran-guards-say-two-oil-tankers-hit-by-mines-in-hormuz-3011782">عرب نيوز / فرانس برس</a></p>
+  </div>
 </section>
 
 <!-- ===== MAIN STORIES (longer, tap to flip) ===== -->
 <div class="sec"><h3>أبرز القصص</h3></div>
 
+<div class="feats">
 <article class="feature flip rv" tabindex="0" role="button" aria-label="اقلب البطاقة لمزيد من التفاصيل">
  <div class="in3d">
   <div class="face front">
@@ -257,6 +313,7 @@ a{color:inherit}
   </div>
  </div>
 </article>
+</div>
 
 <!-- ===== IN BRIEF (short, tap to flip) ===== -->
 <div class="sec"><h3>باختصار</h3></div>
@@ -301,11 +358,10 @@ a{color:inherit}
     </div>
    </div>
   </article>
-</div>
 
-<article class="mini flip rv" tabindex="0" role="button" style="margin:0 20px 18px">
+  <article class="mini flip rv row" tabindex="0" role="button">
  <div class="in3d">
-  <div class="face front" style="flex-direction:row">
+  <div class="face front">
     <div class="ph" style="width:38%;flex:none;min-height:0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kingdom_Centre_Riyadh_2024.jpeg/500px-Kingdom_Centre_Riyadh_2024.jpeg" alt="برج المملكة"></div>
     <div class="tx">
       <span class="tag t-sa">🇸🇦 السعودية</span>
@@ -320,6 +376,7 @@ a{color:inherit}
   </div>
  </div>
 </article>
+</div>
 
 <!-- ===== EXTRA ===== -->
 <section class="extra rv">
