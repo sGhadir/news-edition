@@ -10,13 +10,13 @@
 <style>
 /* ===== This week's palette (rotates weekly) ===== */
 :root{
-  --ink:#0f1c2e;        /* deep text / dark surfaces */
-  --accent:#d9a441;     /* this week's accent */
-  --accent-2:#1f5fa0;   /* secondary accent */
-  --paper:#f6f1e7;      /* page background */
+  --ink:#0d2b33;        /* deep text / dark surfaces */
+  --accent:#ff7a59;     /* this week's accent */
+  --accent-2:#1f6f78;   /* secondary accent */
+  --paper:#eef3f2;      /* page background */
   --card:#ffffff;
   --muted:#6b6656;
-  --line:#e4dccb;
+  --line:#d5e2e0;
   --good:#1f7a4d;
   --display:'Reem Kufi','IBM Plex Sans Arabic',sans-serif;
   --body:'IBM Plex Sans Arabic',-apple-system,'Segoe UI',Tahoma,sans-serif;
@@ -148,87 +148,82 @@ a{color:inherit}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== Cover: type layout ===== */
+.cover.type{min-height:min(88vh,780px)}
+.cover.type::after{display:none}
+.cover.type .word{position:relative;z-index:1;font-family:var(--display);font-weight:700;color:var(--accent);font-size:clamp(96px,30vw,190px);line-height:1;padding:0 18px;margin-top:4vh;letter-spacing:0}
+.cover.type .word small{display:block;font-size:15px;color:#fff;opacity:.7;font-family:var(--body);font-weight:500;margin-top:10px}
+/* ===== Lead visual: timeline ===== */
+.tl{position:relative;margin:4px 0 6px;padding-right:26px}
+.tl::before{content:"";position:absolute;right:8px;top:6px;bottom:6px;width:2px;background:rgba(255,255,255,.18)}
+.step{position:relative;margin-bottom:20px}
+.step::before{content:"";position:absolute;right:-24px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid rgba(255,255,255,.5)}
+.step.hot::before{border-color:var(--accent);background:var(--accent)}
+.step .d{font-family:var(--display);color:var(--accent);font-size:15px}
+.step p{font-size:16px;opacity:.95;line-height:1.75}
+/* emoji block when no photo */
+.emo{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-2),var(--ink));font-size:64px}
+.extra .q{font-family:var(--verse);font-size:22px;line-height:1.9;margin:8px 0 10px;color:#fff}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- ===== COVER ===== -->
-<header class="cover">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Strait_of_Hormuz_%28MODIS_2020-12-04%29.jpg/1280px-Strait_of_Hormuz_%28MODIS_2020-12-04%29.jpg" alt="صورة فضائية لمضيق هرمز">
+<!-- ===== COVER (type) ===== -->
+<header class="cover type">
   <div class="mast">
     <div>
       <div class="name">موجز<span>.</span></div>
       <div class="basmala">بسم الله الرحمن الرحيم</div>
     </div>
-    <div class="meta">السبت ١٤ نوفمبر ٢٠٢٦<br>٤ جمادى الآخرة ١٤٤٨هـ<br>العدد الأسبوعي</div>
+    <div class="meta">الأحد ١٥ نوفمبر ٢٠٢٦<br>٥ جمادى الآخرة ١٤٤٨هـ<br>العدد الأسبوعي</div>
   </div>
+  <div class="word">تهدئة<small>كلمة الأسبوع</small></div>
   <div class="cover-story">
     <span class="kicker">قصة الأسبوع</span>
-    <h1>هرمز يتنفّس بثلث رئته</h1>
-    <p class="dek">حركة السفن عبر المضيق أقل بـ٦٥٪ مما كانت عليه قبل الحرب، والألغام تعود إلى الواجهة.</p>
-    <div class="scroll-hint">↓ اسحب للأسفل · ٣ دقائق قراءة</div>
-    <div class="credit">صورة: NASA MODIS · ملكية عامة</div>
+    <h1>صوت الرياض للتهدئة يصل إلى واشنطن</h1>
+    <p class="dek">ترامب يقول لمستشاريه إنه قد يؤجّل ضرب إيران ما لم تقع استفزازات جديدة، بعد أن حثّه ولي العهد وأردوغان على عدم استئناف الحرب.</p>
+    <div class="scroll-hint">↓ اسحب للأسفل · ٤ دقائق قراءة</div>
   </div>
 </header>
 
-<!-- ===== LEAD VISUAL ===== -->
+<!-- ===== LEAD VISUAL: timeline ===== -->
 <section class="lead">
-  <h2>الأرقام تحكي القصة</h2>
-  <div class="big rv">
-    <div class="ring">
-      <svg width="170" height="170" viewBox="0 0 170 170">
-        <circle class="track" cx="85" cy="85" r="72" fill="none" stroke-width="14"/>
-        <circle class="arc" id="arc" cx="85" cy="85" r="72" fill="none" stroke-width="14"/>
-      </svg>
-      <div class="num"><b><span class="count" data-to="65">0</span>٪</b><small>تراجع الملاحة</small></div>
-    </div>
-    <p>منذ اندلاع الحرب في ٢٨ فبراير، لم تعد حركة الناقلات عبر المضيق إلى طبيعتها، وما زالت أقل من ثلث مستواها المعتاد.</p>
+  <h2>أسبوعان من الاتصالات والصواريخ</h2>
+  <div class="tl rv">
+    <div class="step"><div class="d">٢٨ أكتوبر</div><p>أردوغان يبدأ سلسلة من ثلاثة اتصالات مع ترامب.</p></div>
+    <div class="step hot"><div class="d">٣١ أكتوبر</div><p>ترامب يُبلغ ولي العهد الأمير محمد بن سلمان أنه يخطط للهجوم بعد الانتخابات، فيرجوه التمهّل لأن العقوبات الاقتصادية على إيران تؤتي أثرها.</p></div>
+    <div class="step"><div class="d">٧ نوفمبر</div><p>أردوغان يؤكد لترامب ضرورة إنهاء التوتر بين إيران والولايات المتحدة.</p></div>
+    <div class="step"><div class="d">٩–١٠ نوفمبر</div><p>هجوم حوثي على خط الأنابيب شرق–غرب يسبّب حريقاً محدوداً أُخمد، واعتراض صاروخين فوق الرياض.</p></div>
+    <div class="step hot"><div class="d">١٤ نوفمبر</div><p>رويترز: ترامب قد يؤجّل الهجوم إن لم تأتِ استفزازات جديدة من طهران أو الحوثيين.</p></div>
+    <div class="step"><div class="d">١٥ نوفمبر</div><p>اعتراض صاروخين باليستيين نحو الرياض وثلاث مسيّرات فوق المنطقة الشرقية.</p></div>
   </div>
-
-  <div class="bars rv">
-    <div class="bar-row">
-      <div class="lbl"><span>صادرات نفط الخليج قبل الحرب</span><span>~٢٥ مليون برميل/يوم</span></div>
-      <div class="bar dim"><i data-w="100"></i></div>
-    </div>
-    <div class="bar-row">
-      <div class="lbl"><span>صادرات نفط الخليج اليوم</span><span>١٨٫٤ مليون برميل/يوم</span></div>
-      <div class="bar"><i data-w="74"></i></div>
-    </div>
-  </div>
-
-  <div class="tiles rv">
-    <div class="tile"><b>١٦٣</b><span>حادثة ملاحية مرتبطة بالحرب منذ فبراير</span></div>
-    <div class="tile"><b>٩٥٫٥$</b><span>برنت · ثاني تراجع أسبوعي على التوالي</span></div>
-  </div>
-
-  <p class="body rv">وأعلن الحرس الثوري الإيراني صباح السبت أن ناقلتين أصيبتا بألغام في المضيق، بينما يتمسك الطرفان بشروطهما: طهران تربط إعادة فتح الممر بمطالبها، وواشنطن تُبقي حصارها البحري. ويبقى أثر ذلك أقرب إلينا مما يبدو، في أسعار الطاقة والشحن وأمن الخليج.</p>
-  <p class="body rv">أما النفط فتراجع برنت نحو ٢٫٤٪ هذا الأسبوع بعد هبوط بنحو ١٦٪ في الأسبوع الذي قبله، مع إعلان واشنطن أنها ستُبقي حصارها البحري على إيران.</p>
-  <p class="src">المصادر: <a href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز</a> · <a href="https://www.arabnews.com/middle-east/iran-guards-say-two-oil-tankers-hit-by-mines-in-hormuz-3011782">عرب نيوز / فرانس برس</a></p>
+  <p class="body rv">لم يحسم ترامب قراره بعد؛ فالمسؤولون الإسرائيليون ما زالوا يضغطون لعملية جديدة، وحاملة طائرات أمريكية ثالثة يُنتظر وصولها إلى المنطقة خلال أيام. في المقابل ترى الأجهزة الأمريكية أن الحصار البحري والعقوبات يُرهقان الاقتصاد الإيراني، والحرب لا تحظى بشعبية لدى الناخب الأمريكي.</p>
+  <p class="body rv">لماذا يهمنا؟ لأن المملكة تدفع ثمن التصعيد مباشرة: هجمات الحوثيين على مطاراتها ومنشآتها أودت بـ٢٦ شخصاً منذ سبتمبر، وأي استفزاز جديد قد يكون هو الشرارة التي تعيد الحرب. ولم تُسجَّل إصابات في هجوم خط الأنابيب، بفضل الله.</p>
+  <p class="src">المصادر: <a href="https://en.politis.com.cy/news/world/1068791/saudi-crown-prince-and-erdogan-urge-trump-not-to-resume-iran-attacks">رويترز عبر بوليتيس</a> · <a href="https://www.aljazeera.com/news/2026/11/10/saudi-arabia-downs-missiles-fired-at-riyadh-after-houthi-attack-on-pipeline">الجزيرة</a> · <a href="https://www.arabnews.com/saudi-arabia/coalition-forces-intercept-2-houthi-missiles-targeting-riyadh-3-drones-in-eastern-province-3011963">عرب نيوز</a></p>
 </section>
 
-<!-- ===== MAIN STORIES (longer, tap to flip) ===== -->
+<!-- ===== MAIN STORIES ===== -->
 <div class="sec"><h3>أبرز القصص</h3></div>
 
 <article class="feature flip rv" tabindex="0" role="button" aria-label="اقلب البطاقة لمزيد من التفاصيل">
  <div class="in3d">
   <div class="face front">
     <span class="hint">↻ اضغط للمزيد</span>
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/1280px-Riyadh_Skyline.jpg" alt="الرياض"></div>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Farasan_Island_port%2C_Jazan_Region%2C_Saudi_Arabia_%281%29.jpg/1280px-Farasan_Island_port%2C_Jazan_Region%2C_Saudi_Arabia_%281%29.jpg" alt="ميناء في منطقة جازان"></div>
     <div class="tx">
       <span class="tag t-sa">🇸🇦 السعودية</span>
-      <h4>الرياض تضع هجمات الحوثيين على طاولة المبعوث الصيني</h4>
-      <p>استقبل وزير الخارجية الأمير فيصل بن فرحان المبعوث الصيني للشرق الأوسط تشاي جيون في الرياض، وتصدّرت الهجمات التي طالت مواقع مدنية داخل المملكة جدول اللقاء.</p>
-      <p>بكين، صاحبة العلاقات مع الرياض وطهران معاً، دعت إلى الحوار وخفض التصعيد في اليمن والبحر الأحمر.</p>
-      <div class="cr">صورة: Riyadh Skyline · CC BY-SA 4.0 · ويكيميديا</div>
+      <h4>ستة أشهر في عرض البحر… ثم النجاة</h4>
+      <p>خمسة بحّارة سوريين علقوا ستة أشهر على سفينة متهالكة قبالة ميناء جازان، يقاومون شحّ الطعام والماء والوقود وحرّ البحر الأحمر، حتى أُنقذوا هذا الأسبوع بتنسيق بين السفارة السورية في الرياض والسلطات السعودية، بحمد الله.</p>
+      <div class="cr">صورة: Richard Mortel · CC BY 2.0 · ويكيميديا</div>
     </div>
   </div>
   <div class="face back">
     <h5>ما وراء الخبر</h5>
-    <p>جاء اللقاء بعد أسبوع حافل: سقطت شظايا اعتراض على مبنى إداري لأرامكو في الرياض يوم ٨ نوفمبر دون إصابات، ثم سقط حطام صاروخين اعتُرضا في منطقة مكة المكرمة يوم ١١ نوفمبر، ولم تُذكر إصابات، بفضل الله.</p>
-    <p class="ctx">تحدثت تقارير يمنية نقلاً عن وسائل إعلام سعودية عن بحث اتفاق من ثلاث نقاط عبر الوساطة الصينية، ولم يصدر تأكيد رسمي لذلك.</p>
-    <p>لماذا يهمنا؟ الصين أكبر مشترٍ للنفط الخليجي ولها نفوذ لدى طهران، فدخولها على الخط قد يكون أقصر طريق لتهدئة تحمي المدن والمنشآت.</p>
-    <div class="links"><a href="https://www.spa.gov.sa/en/N2725798">واس ←</a> · <a href="https://news.cgtn.com/news/2026-11-13/Chinese-envoy-calls-for-dialogue-de-escalation-in-Yemen-Red-Sea-1S2ifvx62D6/p.html">CGTN ←</a></div>
+    <p>السفينة تجاوز عمرها ٤٥ عاماً، وفي هيكلها ثقوب وعطب في القاعدة ومحرّك معطّل، لذلك رفضت سلطات الميناء دخولها. أما مالكها، رجل أعمال يمني اشتراها قبل ستة أشهر، فانسحب من ترتيبات الوكالة الملاحية واختفى تاركاً التزاماته المالية والطاقم معاً، كما روى القبطان وليد محمد أبو بكر من جزيرة أرواد.</p>
+    <p class="ctx">مع نفاد الكهرباء كان الطاقم يقنّن استخدامها رغم الحر والرطوبة.</p>
+    <div class="links"><a href="https://www.arabnews.com/saudi-arabia/five-syrian-sailors-rescued-after-six-month-ordeal-off-jazan-coast-3011960">عرب نيوز / سانا ←</a></div>
     <span class="hint">↻ رجوع</span>
   </div>
  </div>
@@ -238,27 +233,25 @@ a{color:inherit}
  <div class="in3d">
   <div class="face front">
     <span class="hint">↻ اضغط للمزيد</span>
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg/1280px-Flooded_tents_of_displaced_Palestinians_due_to_heavy_rain_in_Deir_el-Balah%2C_Gaza_Strip.jpg" alt="خيام غارقة في دير البلح"></div>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg/1280px-Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg" alt="ساحل أنطاليا"></div>
     <div class="tx">
-      <span class="tag t-mw">🕌 العالم الإسلامي</span>
-      <h4>أمطار الشتاء تُغرق خيام النازحين في غزة</h4>
-      <p>وثّقت الأمم المتحدة أضرار السيول في مخيمات النازحين مع أول منخفض شتوي، فيما لا تزال مستلزمات الشتاء عالقة على المعابر.</p>
-      <p class="dua">اللهم كن لإخواننا في غزة، وآوِ مشرّدهم، وارفع عنهم البرد والجوع.</p>
-      <div class="cr">صورة: Ashraf Amra · CC BY-SA 3.0 IGO</div>
+      <span class="tag t-wd">🌎 العالم</span>
+      <h4>العالم في أنطاليا: من الوعود إلى التنفيذ</h4>
+      <p>انطلقت قمة المناخ COP31 في أنطاليا التركية وتستمر حتى ٢٠ نوفمبر تحت شعار «مؤتمر التنفيذ». والتحدي كبير: توقعات الأمم المتحدة تشير إلى احترار بنحو ٢٫٦ درجة هذا القرن حتى لو نُفّذت التعهدات الحالية كاملة.</p>
+      <div class="cr">صورة: Esginmurat · CC BY-SA 4.0 · ويكيميديا</div>
     </div>
   </div>
   <div class="face back">
     <h5>ما وراء الخبر</h5>
-    <p>انتقد منسّق الإغاثة الأممي توم فليتشر تأخير إدخال الإمدادات، ورفض انتظار تشكيل الحكومة الإسرائيلية الجديدة قائلاً إن ذلك «ليس عذراً مقبولاً».</p>
-    <p>وكان «مجلس السلام» الذي تقوده واشنطن للإشراف على خطة غزة قد طالب إسرائيل في ٩ نوفمبر بالسماح بدخول المواد الأساسية.</p>
-    <p class="ctx">وفي ١١ نوفمبر قُتل ستة أشخاص بغارة على قسم الجراحة في مستشفى ناصر بخان يونس، وفق الأمم المتحدة.</p>
-    <div class="links"><a href="https://ochaopt.org/content/humanitarian-situation-report-heavy-rains-gaza-strip-8-november-2026">أوتشا ←</a> · <a href="https://thenationalnews.com/news/mena/2026/11/11/un-aid-chief-criticises-delays-in-gaza-relief-and-rejects-waiting-for-israel-to-form-government">ذا ناشونال ←</a></div>
+    <p>تتولى تركيا رئاسة المؤتمر، ويقود المفاوضات وزير المناخ الأسترالي كريس بوين. وأكبر الخلافات حول المال: تحتاج الدول النامية نحو ٣٠٥ مليارات دولار سنوياً للتكيّف مع المناخ بحلول ٢٠٣٥، بينما لم يتجاوز التمويل الدولي العام لذلك ٢٨–٣٢ ملياراً في ٢٠٢٤.</p>
+    <p class="ctx">ويبقى الخلاف أيضاً حول وتيرة الانتقال عن الوقود الأحفوري، بعد أن أخفق COP30 في الاتفاق على خارطة طريق له، وهو نقاش يمسّ اقتصادات الدول المنتجة للنفط.</p>
+    <div class="links"><a href="https://aa.com.tr/en/turkiye/cop31-climate-summit-opens-in-turkiye-amid-calls-for-stronger-action/4116474">الأناضول ←</a></div>
     <span class="hint">↻ رجوع</span>
   </div>
  </div>
 </article>
 
-<!-- ===== IN BRIEF (short, tap to flip) ===== -->
+<!-- ===== IN BRIEF ===== -->
 <div class="sec"><h3>باختصار</h3></div>
 
 <div class="grid">
@@ -266,18 +259,18 @@ a{color:inherit}
    <div class="in3d">
     <div class="face front">
       <span class="hint">↻</span>
-      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Doha_Skyline_01.jpg/960px-Doha_Skyline_01.jpg" alt="الدوحة"></div>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Skyline_in_Shenzhen_%2820250327%29.jpg/960px-Skyline_in_Shenzhen_%2820250327%29.jpg" alt="شنتشن"></div>
       <div class="tx">
-        <span class="tag t-me">🌍 المنطقة</span>
-        <h4>تركيا وقطر: من يمسّ أحدنا يمسّ الآخر</h4>
-        <p>اتفاق دفاع مشترك وُقّع في إسطنبول.</p>
-        <div class="cr">صورة: Zairon · CC BY 4.0</div>
+        <span class="tag t-wd">🌎 العالم</span>
+        <h4>واشنطن وبكين تفتحان ملف «الذكاء الفائق»</h4>
+        <p>لقاء ترامب وشي في شنتشن الأسبوع القادم.</p>
+        <div class="cr">صورة: Fumikas Sagisavas · CC0</div>
       </div>
     </div>
     <div class="face back">
       <h5>التفاصيل</h5>
-      <p>وُقّع الاتفاق في ١٣ نوفمبر، ويلزم البلدين برد موحّد على أي هجوم خارجي، ويوسّع المناورات والتصنيع العسكري والتدريب. تفاصيل التنفيذ لم تُعلن بعد.</p>
-      <div class="links"><a href="https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854">غلف نيوز ←</a></div>
+      <p>يلتقي الزعيمان على هامش قمة «أبيك» في ١٨–١٩ نوفمبر، في ثالث لقاء بينهما هذا العام. وقال وزير الخزانة بيسنت في ١٠ نوفمبر إن البلدين سيطلقان حواراً حول الذكاء الاصطناعي المتقدم وقناة مباشرة للتنبيه إلى حوادثه الخطيرة.</p>
+      <div class="links"><a href="https://political.org/2026/11/10/bessent-says-us-and-china-should-stay-clear-eyed-on-ai-cooperation-and-competition-ahead-of-trump-xi-meeting-in-shenzhen/">بوليتيكال ←</a></div>
     </div>
    </div>
   </article>
@@ -286,18 +279,18 @@ a{color:inherit}
    <div class="in3d">
     <div class="face front">
       <span class="hint">↻</span>
-      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/FLAIR_MRI_of_cerebral_infarction.png" alt="رنين مغناطيسي لجلطة دماغية"></div>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Myeloblast_with_Auer_rod_smear_2010-01-27.JPG/960px-Myeloblast_with_Auer_rod_smear_2010-01-27.JPG" alt="خلية سرطان دم تحت المجهر"></div>
       <div class="tx">
         <span class="tag t-sci">🔬 علوم وطب</span>
-        <h4>دواء جديد يقلّل تكرار الجلطة الدماغية</h4>
-        <p>FDA تقرّ أول مثبّط للعامل XIa.</p>
-        <div class="cr">صورة: CC BY 4.0 · ويكيميديا</div>
+        <h4>علاج لسرطان الدم يُؤخذ في البيت</h4>
+        <p>حبوب بدل حقن العيادة لكبار السن.</p>
+        <div class="cr">صورة: Paulo Henrique Orlandi Mourao · CC BY-SA 3.0</div>
       </div>
     </div>
     <div class="face back">
       <h5>التفاصيل</h5>
-      <p>أعلنت باير في ٩ نوفمبر موافقة FDA على «أسونديكسيان» للبالغين بعد جلطة إقفارية حديثة غير قلبية المنشأ أو نوبة إقفارية عابرة عالية الخطورة، مع مضادات الصفائح. استندت الموافقة إلى دراسة OCEANIC-STROKE.</p>
-      <div class="links"><a href="https://www.tctmd.com/news/asundexian-first-factor-xia-inhibitor-gain-fda-approval">TCTMD ←</a></div>
+      <p>نشرت NEJM في ١١ نوفمبر دراسة بقيادة جامعة ييل على ١٨٩ مريضاً بابيضاض الدم النقوي الحاد لا يتحملون العلاج المكثف. نظام فموي كامل (ديسيتابين–سيدازوريدين مع فينيتوكلاكس) حقق هدأة كاملة لدى ٤٧٪، وبقاءً مماثلاً للحقن، ووافقت عليه FDA.</p>
+      <div class="links"><a href="https://www.news-medical.net/news/20261111/Oral-leukemia-therapy-offers-effective-at-home-care-for-older-adults.aspx">News-Medical ←</a></div>
     </div>
    </div>
   </article>
@@ -306,37 +299,38 @@ a{color:inherit}
 <article class="mini flip rv" tabindex="0" role="button" style="margin:0 20px 18px">
  <div class="in3d">
   <div class="face front" style="flex-direction:row">
-    <div class="ph" style="width:38%;flex:none;min-height:0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kingdom_Centre_Riyadh_2024.jpeg/500px-Kingdom_Centre_Riyadh_2024.jpeg" alt="برج المملكة"></div>
+    <div class="ph emo" style="width:38%;flex:none;min-height:120px">🏟️</div>
     <div class="tx">
       <span class="tag t-sa">🇸🇦 السعودية</span>
-      <h4>مبادرة مستقبل الاستثمار تنتقل إلى ٢٠٢٧</h4>
-      <p>الموعد الجديد ٢٥–٢٨ أكتوبر ٢٠٢٧ في الرياض. <span style="color:var(--accent-2)">↻</span></p>
+      <h4>ملعب أرامكو في الخبر يفتح أبوابه للزوار</h4>
+      <p>جولات مرشدة حتى ٩ ديسمبر. <span style="color:var(--accent-2)">↻</span></p>
     </div>
   </div>
   <div class="face back">
     <h5>التفاصيل</h5>
-    <p>كان المؤتمر مقرراً في ٢٦–٢٩ أكتوبر ٢٠٢٦، وأُجّل مرة سابقة بعد هجوم حوثي على مطار الرياض. لم يُذكر سبب للتأجيل الأخير.</p>
-    <div class="links"><a href="https://gulfnews.com/world/gulf/saudi/saudi-arabia-announces-new-dates-for-postponed-fii10-investment-conference-1.500745561">غلف نيوز ←</a></div>
+    <p>بدأت في ١٤ نوفمبر جولات في الملعب الجديد (٤٧ ألف مقعد) من الخامسة إلى الثامنة مساءً، تشمل غرف الملابس ونفق اللاعبين وأرض الملعب وقاعة المؤتمرات الصحفية، بالعربية والإنجليزية، بـ١٦٥ ريالاً للشخص.</p>
+    <div class="links"><a href="https://whatsonsaudiarabia.com/2026/11/things-to-look-forward-to-saudi-arabia-november-2026/">What's On ←</a></div>
   </div>
  </div>
 </article>
 
-<!-- ===== EXTRA ===== -->
+<!-- ===== EXTRA: reflection ===== -->
 <section class="extra rv">
-  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Saudi_Red_Crescent.jpg/1280px-Saudi_Red_Crescent.jpg" alt="الهلال الأحمر السعودي"></div>
+  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/The_Ridges_of_Sarawat_Mountains.jpg/1280px-The_Ridges_of_Sarawat_Mountains.jpg" alt="جبال السروات"></div>
   <div class="tx">
-    <div class="lab">🌱 خبر يسرّ</div>
-    <div class="n"><span class="count" data-to="137">0</span></div>
-    <p>إنجازاً دولياً حققتها المنظومة الصحية السعودية منذ بداية ٢٠٢٦، بينها ٦٨ جائزة وميدالية عالمية، بحمد الله.</p>
-    <div class="cr">المصدر: <a href="https://ajel.sa/local/cxq6d79pu">عاجل</a> · صورة: CC BY-SA 4.0</div>
+    <div class="lab">🤲 تأمل</div>
+    <p>بينما يتفاوض العالم في أنطاليا على مستقبل الأرض، نتذكّر أنها أمانة بين أيدينا، قال رسول الله ﷺ:</p>
+    <p class="q">«إنّ الدنيا حلوةٌ خضِرة، وإنّ الله مستخلفكم فيها، فينظر كيف تعملون»</p>
+    <p>رواه مسلم. فالماء الذي لا نُسرف فيه، والأرض التي لا نُفسدها، عملٌ يُكتب لنا.</p>
+    <div class="cr">صورة: Wajahatmr · CC BY-SA 3.0 · ويكيميديا</div>
   </div>
 </section>
 
 <!-- ===== CLOSING ===== -->
 <footer class="close">
   <div class="orn">✦ ۞ ✦</div>
-  <p class="v">﴿بَلْ تُؤْثِرُونَ الْحَيَاةَ الدُّنْيَا ۝ وَالْآخِرَةُ خَيْرٌ وَأَبْقَىٰ﴾</p>
-  <p class="ref">الأعلى: ١٦–١٧</p>
+  <p class="v">﴿وَمَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ ۚ وَإِنَّ الدَّارَ الْآخِرَةَ لَهِيَ الْحَيَوَانُ ۚ لَوْ كَانُوا يَعْلَمُونَ﴾</p>
+  <p class="ref">العنكبوت: ٦٤</p>
   <p class="bye">نلقاكم الجمعة القادمة بإذن الله</p>
 </footer>
 
