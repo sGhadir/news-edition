@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>موجز الأسبوع</title>
+<title>موجز الأسبوع · ٢٠ نوفمبر ٢٠٢٦</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ===== This week's palette (rotates weekly) ===== */
 :root{
-  --ink:#0d2b33;        /* deep text / dark surfaces */
-  --accent:#ff7a59;     /* this week's accent */
-  --accent-2:#1f6f78;   /* secondary accent */
-  --paper:#eef3f2;      /* page background */
+  --ink:#0e2a22;        /* deep text / dark surfaces */
+  --accent:#e3b04b;     /* this week's accent */
+  --accent-2:#1f7a4d;   /* secondary accent */
+  --paper:#f3f1ea;      /* page background */
   --card:#ffffff;
   --muted:#6b6656;
-  --line:#d5e2e0;
+  --line:#e4dccb;
   --good:#1f7a4d;
   --display:'Reem Kufi','IBM Plex Sans Arabic',sans-serif;
   --body:'IBM Plex Sans Arabic',-apple-system,'Segoe UI',Tahoma,sans-serif;
@@ -149,23 +149,6 @@ a{color:inherit}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-/* ===== Cover: type layout ===== */
-.cover.type{min-height:min(88vh,780px)}
-.cover.type::after{display:none}
-.cover.type .word{position:relative;z-index:1;font-family:var(--display);font-weight:700;color:var(--accent);font-size:clamp(96px,30vw,190px);line-height:1;padding:0 18px;margin-top:4vh;letter-spacing:0}
-.cover.type .word small{display:block;font-size:15px;color:#fff;opacity:.7;font-family:var(--body);font-weight:500;margin-top:10px}
-/* ===== Lead visual: timeline ===== */
-.tl{position:relative;margin:4px 0 6px;padding-right:26px}
-.tl::before{content:"";position:absolute;right:8px;top:6px;bottom:6px;width:2px;background:rgba(255,255,255,.18)}
-.step{position:relative;margin-bottom:20px}
-.step::before{content:"";position:absolute;right:-24px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid rgba(255,255,255,.5)}
-.step.hot::before{border-color:var(--accent);background:var(--accent)}
-.step .d{font-family:var(--display);color:var(--accent);font-size:15px}
-.step p{font-size:16px;opacity:.95;line-height:1.75}
-/* emoji block when no photo */
-.emo{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-2),var(--ink));font-size:64px}
-.extra .q{font-family:var(--verse);font-size:22px;line-height:1.9;margin:8px 0 10px;color:#fff}
-
 /* ===== v2 (2026-11-15): flip fix, textured background, wide screens ===== */
 /* flip: hide the face that is turned away (blur/transform layers ignore backface-visibility) */
 .hint{backdrop-filter:none;-webkit-backdrop-filter:none}
@@ -217,46 +200,74 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   .extra .tx{padding:28px 32px}
   .close{border-radius:28px;margin-top:44px}
 }
+/* ===== cover: photo-split (this week) ===== */
+.cover.split{min-height:0;display:block}
+.cover.split::after{display:none}
+.cover.split .cph{position:relative;height:min(55vh,520px);min-height:300px;overflow:hidden}
+.cover.split .cph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,.25) 100%)}
+.cover.split .mast{position:absolute;top:0;left:0;right:0;z-index:2}
+.cover.split .cover-story{background:var(--ink);padding-top:26px;padding-bottom:30px}
+.cover.split .credit{opacity:.55}
+.ph.emo{display:flex;align-items:center;justify-content:center;font-size:56px;background:color-mix(in srgb,var(--accent-2) 22%,var(--paper))}
+@media (min-width:900px){.cover.split{min-height:0}.cover.split .cph{height:min(58vh,520px)}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- ===== COVER (type) ===== -->
-<header class="cover type">
-  <div class="mast">
-    <div>
-      <div class="name">موجز<span>.</span></div>
-      <div class="basmala">بسم الله الرحمن الرحيم</div>
+<!-- ===== COVER (photo-split) ===== -->
+<header class="cover split">
+  <div class="cph">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Den_Haag%2C_het_Vredespaleis_RM333074_IMG_4317_2024-08-05_10.02.jpg/1280px-Den_Haag%2C_het_Vredespaleis_RM333074_IMG_4317_2024-08-05_10.02.jpg" alt="قصر السلام في لاهاي، مقر محكمة العدل الدولية">
+    <div class="mast">
+      <div>
+        <div class="name">موجز<span>.</span></div>
+        <div class="basmala">بسم الله الرحمن الرحيم</div>
+      </div>
+      <div class="meta">الجمعة ٢٠ نوفمبر ٢٠٢٦<br>١٠ جمادى الآخرة ١٤٤٨هـ<br>العدد الأسبوعي</div>
     </div>
-    <div class="meta">الأحد ١٥ نوفمبر ٢٠٢٦<br>٥ جمادى الآخرة ١٤٤٨هـ<br>العدد الأسبوعي</div>
   </div>
-  <div class="word">تهدئة<small>كلمة الأسبوع</small></div>
   <div class="cover-story">
     <span class="kicker">قصة الأسبوع</span>
-    <h1>صوت الرياض للتهدئة يصل إلى واشنطن</h1>
-    <p class="dek">ترامب يقول لمستشاريه إنه قد يؤجّل ضرب إيران ما لم تقع استفزازات جديدة، بعد أن حثّه ولي العهد وأردوغان على عدم استئناف الحرب.</p>
+    <h1>حكمٌ تاريخي للروهينغا</h1>
+    <p class="dek">محكمة العدل الدولية تجد ميانمار مسؤولة عن إبادة جماعية، في سابقة هي الأولى منذ تأسيس المحكمة.</p>
     <div class="scroll-hint">↓ اسحب للأسفل · ٤ دقائق قراءة</div>
+    <div class="credit">صورة: قصر السلام، لاهاي · Michielverbeek · CC BY 4.0 · ويكيميديا</div>
   </div>
 </header>
 
-<!-- ===== LEAD VISUAL: timeline ===== -->
+<!-- ===== LEAD VISUAL (bars) ===== -->
 <section class="lead">
-  <h2>أسبوعان من الاتصالات والصواريخ</h2>
+  <h2>شعبٌ بين بلدين</h2>
   <div class="lv">
-  <div class="tl rv">
-    <div class="step"><div class="d">٢٨ أكتوبر</div><p>أردوغان يبدأ سلسلة من ثلاثة اتصالات مع ترامب.</p></div>
-    <div class="step hot"><div class="d">٣١ أكتوبر</div><p>ترامب يُبلغ ولي العهد الأمير محمد بن سلمان أنه يخطط للهجوم بعد الانتخابات، فيرجوه التمهّل لأن العقوبات الاقتصادية على إيران تؤتي أثرها.</p></div>
-    <div class="step"><div class="d">٧ نوفمبر</div><p>أردوغان يؤكد لترامب ضرورة إنهاء التوتر بين إيران والولايات المتحدة.</p></div>
-    <div class="step"><div class="d">٩–١٠ نوفمبر</div><p>هجوم حوثي على خط الأنابيب شرق–غرب يسبّب حريقاً محدوداً أُخمد، واعتراض صاروخين فوق الرياض.</p></div>
-    <div class="step hot"><div class="d">١٤ نوفمبر</div><p>رويترز: ترامب قد يؤجّل الهجوم إن لم تأتِ استفزازات جديدة من طهران أو الحوثيين.</p></div>
-    <div class="step"><div class="d">١٥ نوفمبر</div><p>اعتراض صاروخين باليستيين نحو الرياض وثلاث مسيّرات فوق المنطقة الشرقية.</p></div>
+  <div class="bars rv" style="margin-top:0">
+    <div class="bar-row">
+      <div class="lbl"><span>الروهينغا في ميانمار قبل ٢٠١٧</span><span>نحو ١٫٤ مليون</span></div>
+      <div class="bar dim"><i data-w="100"></i></div>
+    </div>
+    <div class="bar-row">
+      <div class="lbl"><span>فرّوا إلى بنغلاديش في ٢٠١٧ خلال أشهر</span><span>نحو ٧٥٠ ألفاً</span></div>
+      <div class="bar"><i data-w="54"></i></div>
+    </div>
+    <div class="bar-row">
+      <div class="lbl"><span>في مخيمات كوكس بازار اليوم</span><span>نحو ١٫٢ مليون</span></div>
+      <div class="bar"><i data-w="86"></i></div>
+    </div>
+    <div class="bar-row">
+      <div class="lbl"><span>ما زالوا داخل ميانمار</span><span>نحو ٥٢٠ ألفاً</span></div>
+      <div class="bar dim"><i data-w="37"></i></div>
+    </div>
+  </div>
+  <div class="tiles rv">
+    <div class="tile"><b>٩ من ١٥</b><span>قاضياً صوّتوا بثبوت الإبادة</span></div>
+    <div class="tile"><b>نوفمبر ٢٠٢٨</b><span>مهلة ميانمار لتقديم خطة جبر الضرر</span></div>
   </div>
   </div>
   <div class="lt">
-  <p class="body rv">لم يحسم ترامب قراره بعد؛ فالمسؤولون الإسرائيليون ما زالوا يضغطون لعملية جديدة، وحاملة طائرات أمريكية ثالثة يُنتظر وصولها إلى المنطقة خلال أيام. في المقابل ترى الأجهزة الأمريكية أن الحصار البحري والعقوبات يُرهقان الاقتصاد الإيراني، والحرب لا تحظى بشعبية لدى الناخب الأمريكي.</p>
-  <p class="body rv">لماذا يهمنا؟ لأن المملكة تدفع ثمن التصعيد مباشرة: هجمات الحوثيين على مطاراتها ومنشآتها أودت بـ٢٦ شخصاً منذ سبتمبر، وأي استفزاز جديد قد يكون هو الشرارة التي تعيد الحرب. ولم تُسجَّل إصابات في هجوم خط الأنابيب، بفضل الله.</p>
-  <p class="src">المصادر: <a href="https://en.politis.com.cy/news/world/1068791/saudi-crown-prince-and-erdogan-urge-trump-not-to-resume-iran-attacks">رويترز عبر بوليتيس</a> · <a href="https://www.aljazeera.com/news/2026/11/10/saudi-arabia-downs-missiles-fired-at-riyadh-after-houthi-attack-on-pipeline">الجزيرة</a> · <a href="https://www.arabnews.com/saudi-arabia/coalition-forces-intercept-2-houthi-missiles-targeting-riyadh-3-drones-in-eastern-province-3011963">عرب نيوز</a></p>
+  <p class="body rv">بعد سبع سنوات من نظر القضية، قضت محكمة العدل الدولية يوم الخميس ١٩ نوفمبر بأن ميانمار ارتكبت إبادة جماعية بحق الروهينغا المسلمين، وأنها أخلّت كذلك بواجب منعها. وقالت المحكمة إن قوات الأمن قتلت آلاف المدنيين في ولاية راخين منذ حملة ٢٠١٧، وإن «الاستنتاج المعقول الوحيد» هو نية تدمير جزء كبير من الجماعة.</p>
+  <p class="body rv">وألزمت المحكمة ميانمار بوقف العنف ومحاكمة المسؤولين، وبتمكين اللاجئين من العودة الآمنة الطوعية وإعادة ممتلكاتهم، على أن تقدّم خطة للتعويض خلال عامين. الحكم نهائي لا يُستأنف، لكن المحكمة لا تملك أداة لتنفيذه، فقد تلجأ غامبيا، التي رفعت الدعوى عام ٢٠١٩ بدعم منظمة التعاون الإسلامي، إلى مجلس الأمن.</p>
+  <p class="body rv">ولهذا الحكم صدى يتجاوز ميانمار: فقد عُدّ سابقة يتابعها المختصون في دعوى جنوب أفريقيا ضد إسرائيل بشأن غزة. وهو تذكير بأن الحقوق لا تسقط بمرور السنين، والحمد لله على كل خطوة نحو إنصاف المظلوم.</p>
+  <p class="src">المصادر: <a href="https://www.aljazeera.com/news/2026/11/19/what-the-icj-ruling-means-for-the-rohingya">الجزيرة</a> · <a href="https://www.rfa.org/english/myanmar/2026/11/19/rohingya-genocide-icj-ruling-myanmar/">إذاعة آسيا الحرة</a></p>
   </div>
 </section>
 
@@ -268,19 +279,21 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
  <div class="in3d">
   <div class="face front">
     <span class="hint">↻ اضغط للمزيد</span>
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Farasan_Island_port%2C_Jazan_Region%2C_Saudi_Arabia_%281%29.jpg/1280px-Farasan_Island_port%2C_Jazan_Region%2C_Saudi_Arabia_%281%29.jpg" alt="ميناء في منطقة جازان"></div>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/PIF_Tower_Riyadh_2024.jpeg/1280px-PIF_Tower_Riyadh_2024.jpeg" alt="برج صندوق الاستثمارات العامة في الرياض"></div>
     <div class="tx">
       <span class="tag t-sa">🇸🇦 السعودية</span>
-      <h4>ستة أشهر في عرض البحر… ثم النجاة</h4>
-      <p>خمسة بحّارة سوريين علقوا ستة أشهر على سفينة متهالكة قبالة ميناء جازان، يقاومون شحّ الطعام والماء والوقود وحرّ البحر الأحمر، حتى أُنقذوا هذا الأسبوع بتنسيق بين السفارة السورية في الرياض والسلطات السعودية، بحمد الله.</p>
-      <div class="cr">صورة: Richard Mortel · CC BY 2.0 · ويكيميديا</div>
+      <h4>شظايا صاروخ حوثي تصيب برج «الصندوق» في الرياض</h4>
+      <p>فجر الخميس ١٩ نوفمبر تصدّت الدفاعات لصاروخ حوثي أُطلق نحو الرياض، فسقط حطامه على برج صندوق الاستثمارات العامة، أعلى مباني المركز المالي، وتضررت واجهته ومبانٍ مجاورة. ولم تُسجّل إصابات، بفضل الله.</p>
+      <p>وأكدت الخارجية أن المملكة لن تتهاون مع أي اعتداء على أرضها ومقدّراتها.</p>
+      <div class="cr">صورة: Faisal Arif · CC BY-SA 4.0 · ويكيميديا</div>
     </div>
   </div>
   <div class="face back">
     <h5>ما وراء الخبر</h5>
-    <p>السفينة تجاوز عمرها ٤٥ عاماً، وفي هيكلها ثقوب وعطب في القاعدة ومحرّك معطّل، لذلك رفضت سلطات الميناء دخولها. أما مالكها، رجل أعمال يمني اشتراها قبل ستة أشهر، فانسحب من ترتيبات الوكالة الملاحية واختفى تاركاً التزاماته المالية والطاقم معاً، كما روى القبطان وليد محمد أبو بكر من جزيرة أرواد.</p>
-    <p class="ctx">مع نفاد الكهرباء كان الطاقم يقنّن استخدامها رغم الحر والرطوبة.</p>
-    <div class="links"><a href="https://www.arabnews.com/saudi-arabia/five-syrian-sailors-rescued-after-six-month-ordeal-off-jazan-coast-3011960">عرب نيوز / سانا ←</a></div>
+    <p>لم يكن الهجوم معزولاً: ففي يوم الأحد ١٥ نوفمبر وحده اعترض التحالف صاروخين باليستيين وست مسيّرات وُجّهت نحو مكة المكرمة والمدينة المنورة والرياض والشرقية، وتوالت بعدها محاولات نحو المنطقة الجنوبية حتى صباح اليوم.</p>
+    <p class="ctx">أدانت مجموعة السبع الهجمات، وكذلك الإمارات وقطر والكويت ومجلس التعاون. وفي ١٥ نوفمبر أفرج الحوثيون عن ٦٠٠ محتجز من أنصار الحكومة اليمنية، وفق الصليب الأحمر.</p>
+    <p>دعت الخارجية مجلس الأمن إلى تطبيق قراراته، فهذه الهجمات تمسّ أمن المنطقة وممرات العالم، لا المملكة وحدها.</p>
+    <div class="links"><a href="https://gulfnews.com/world/mena/middle-east-war-riyadh-skyscraper-damaged-tanker-hit-near-oman-as-trump-weighs-fresh-iran-strikes-1.500752996">غلف نيوز / فرانس برس ←</a> · <a href="https://gulfnews.com/world/mena/middle-east-conflict-saudi-arabia-intercepts-houthi-missiles-targeting-riyadh-as-bahrain-issues-threat-alert-1.500747797">غلف نيوز ←</a></div>
     <span class="hint">↻ رجوع</span>
   </div>
  </div>
@@ -290,19 +303,21 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
  <div class="in3d">
   <div class="face front">
     <span class="hint">↻ اضغط للمزيد</span>
-    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg/1280px-Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg" alt="ساحل أنطاليا"></div>
+    <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/BalticServers_data_center.jpg/1280px-BalticServers_data_center.jpg" alt="مركز بيانات"></div>
     <div class="tx">
-      <span class="tag t-wd">🌎 العالم</span>
-      <h4>العالم في أنطاليا: من الوعود إلى التنفيذ</h4>
-      <p>انطلقت قمة المناخ COP31 في أنطاليا التركية وتستمر حتى ٢٠ نوفمبر تحت شعار «مؤتمر التنفيذ». والتحدي كبير: توقعات الأمم المتحدة تشير إلى احترار بنحو ٢٫٦ درجة هذا القرن حتى لو نُفّذت التعهدات الحالية كاملة.</p>
-      <div class="cr">صورة: Esginmurat · CC BY-SA 4.0 · ويكيميديا</div>
+      <span class="tag t-sci">🤖 تقنية</span>
+      <h4>«هيوماين» تعد بنموذج ذكاء اصطناعي سعودي عملاق في ديسمبر</h4>
+      <p>أعلن طارق أمين، الرئيس التنفيذي لشركة «هيوماين» التابعة لصندوق الاستثمارات العامة، أن منظومتها الكاملة ستتاح في ١٥ ديسمبر، وفيها نموذج مفتوح الأوزان بثلاثة تريليونات مُعامل وصفه بأنه الأكبر في العالم.</p>
+      <p>والمنظومة، كما قال، مبنية ومُشغّلة بأيدٍ سعودية داخل المملكة.</p>
+      <div class="cr">صورة: BalticServers.com · CC BY-SA 3.0 · ويكيميديا</div>
     </div>
   </div>
   <div class="face back">
     <h5>ما وراء الخبر</h5>
-    <p>تتولى تركيا رئاسة المؤتمر، ويقود المفاوضات وزير المناخ الأسترالي كريس بوين. وأكبر الخلافات حول المال: تحتاج الدول النامية نحو ٣٠٥ مليارات دولار سنوياً للتكيّف مع المناخ بحلول ٢٠٣٥، بينما لم يتجاوز التمويل الدولي العام لذلك ٢٨–٣٢ ملياراً في ٢٠٢٤.</p>
-    <p class="ctx">ويبقى الخلاف أيضاً حول وتيرة الانتقال عن الوقود الأحفوري، بعد أن أخفق COP30 في الاتفاق على خارطة طريق له، وهو نقاش يمسّ اقتصادات الدول المنتجة للنفط.</p>
-    <div class="links"><a href="https://aa.com.tr/en/turkiye/cop31-climate-summit-opens-in-turkiye-amid-calls-for-stronger-action/4116474">الأناضول ←</a></div>
+    <p>جاء الإعلان في افتتاح «هيوماين+»، منصة لتعليم الذكاء الاصطناعي التطبيقي تبدأ عملها في الربع الأول من ٢٠٢٧، بأربعة مسارات: للقادة، وغير التقنيين، والتقنيين، والطلاب، ومقر في الرياض يتسع لنحو ١٥٠٠ متعلم سنوياً.</p>
+    <p class="ctx">قال أمين إن البنية جاهزة لأي مطوّر أو جهة حكومية «دون أن تخرج البيانات من البلاد»، وإن النموذج أقل كلفة بنحو ٨٨٪ من نظرائه في الخارج، وهي أرقام الشركة نفسها.</p>
+    <p>امتلاك هذه البنية محلياً يعني أن بيانات المؤسسات تبقى في الداخل، وأن الوظائف التقنية تُبنى هنا.</p>
+    <div class="links"><a href="https://www.arabnews.com/saudi-arabia/humain-ceo-unveils-december-ai-stack-rollout-humain-launch-plans-for-2027-3011422">عرب نيوز ←</a></div>
     <span class="hint">↻ رجوع</span>
   </div>
  </div>
@@ -317,18 +332,18 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
    <div class="in3d">
     <div class="face front">
       <span class="hint">↻</span>
-      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Skyline_in_Shenzhen_%2820250327%29.jpg/960px-Skyline_in_Shenzhen_%2820250327%29.jpg" alt="شنتشن"></div>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Antalya_Coast_and_walls_near_Talya_Viewpoint_in_2013_16.jpg/960px-Antalya_Coast_and_walls_near_Talya_Viewpoint_in_2013_16.jpg" alt="ساحل أنطاليا"></div>
       <div class="tx">
-        <span class="tag t-wd">🌎 العالم</span>
-        <h4>واشنطن وبكين تفتحان ملف «الذكاء الفائق»</h4>
-        <p>لقاء ترامب وشي في شنتشن الأسبوع القادم.</p>
-        <div class="cr">صورة: Fumikas Sagisavas · CC0</div>
+        <span class="tag t-me">🌍 المنطقة</span>
+        <h4>البحار على طاولة أنطاليا</h4>
+        <p>مؤتمر المناخ COP31 يختتم أعماله اليوم.</p>
+        <div class="cr">صورة: Dosseman · CC BY-SA 4.0 · ويكيميديا</div>
       </div>
     </div>
     <div class="face back">
       <h5>التفاصيل</h5>
-      <p>يلتقي الزعيمان على هامش قمة «أبيك» في ١٨–١٩ نوفمبر، في ثالث لقاء بينهما هذا العام. وقال وزير الخزانة بيسنت في ١٠ نوفمبر إن البلدين سيطلقان حواراً حول الذكاء الاصطناعي المتقدم وقناة مباشرة للتنبيه إلى حوادثه الخطيرة.</p>
-      <div class="links"><a href="https://political.org/2026/11/10/bessent-says-us-and-china-should-stay-clear-eyed-on-ai-cooperation-and-competition-ahead-of-trump-xi-meeting-in-shenzhen/">بوليتيكال ←</a></div>
+      <p>دخلت حماية المحيطات أول مسودة للاتفاق بدفع من تركيا وأستراليا، وأيّدت ٢٣ دولة «خطة أنطاليا» للوقاية من حرائق الغابات، ونالت غانا أول أرصدة كربون غابية في أفريقيا. أما الوقود الأحفوري والتمويل فما زالا محل خلاف.</p>
+      <div class="links"><a href="https://news.un.org/en/story/2026/11/1168824">أخبار الأمم المتحدة ←</a></div>
     </div>
    </div>
   </article>
@@ -337,62 +352,62 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
    <div class="in3d">
     <div class="face front">
       <span class="hint">↻</span>
-      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Myeloblast_with_Auer_rod_smear_2010-01-27.JPG/960px-Myeloblast_with_Auer_rod_smear_2010-01-27.JPG" alt="خلية سرطان دم تحت المجهر"></div>
+      <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Gansu.Guazhou.windturbine_farm.sunset.jpg/960px-Gansu.Guazhou.windturbine_farm.sunset.jpg" alt="مزرعة رياح في قانسو بالصين"></div>
       <div class="tx">
-        <span class="tag t-sci">🔬 علوم وطب</span>
-        <h4>علاج لسرطان الدم يُؤخذ في البيت</h4>
-        <p>حبوب بدل حقن العيادة لكبار السن.</p>
-        <div class="cr">صورة: Paulo Henrique Orlandi Mourao · CC BY-SA 3.0</div>
+        <span class="tag t-wd">🌎 العالم</span>
+        <h4>انبعاثات الصين تتراجع ٣٫١٪</h4>
+        <p>أكبر هبوط فصلي منذ الجائحة.</p>
+        <div class="cr">صورة: Popolon · CC BY-SA 3.0 · ويكيميديا</div>
       </div>
     </div>
     <div class="face back">
       <h5>التفاصيل</h5>
-      <p>نشرت NEJM في ١١ نوفمبر دراسة بقيادة جامعة ييل على ١٨٩ مريضاً بابيضاض الدم النقوي الحاد لا يتحملون العلاج المكثف. نظام فموي كامل (ديسيتابين–سيدازوريدين مع فينيتوكلاكس) حقق هدأة كاملة لدى ٤٧٪، وبقاءً مماثلاً للحقن، ووافقت عليه FDA.</p>
-      <div class="links"><a href="https://www.news-medical.net/news/20261111/Oral-leukemia-therapy-offers-effective-at-home-care-for-older-adults.aspx">News-Medical ←</a></div>
+      <p>انخفضت انبعاثات الصين في الربع الثالث مع تراجع الفحم والنفط، وبلغت السيارات الكهربائية ٦٧٪ من مبيعات سيارات الركاب في سبتمبر. ومن أسباب ذلك غلاء الوقود بسبب حرب إيران، ويرى المحللون أن الحديث عن بلوغ الذروة ما زال مبكراً.</p>
+      <div class="links"><a href="https://www.carbonbrief.org/analysis-chinas-quarterly-co2-falls-3-in-largest-drop-since-covid">كاربون بريف ←</a></div>
     </div>
    </div>
   </article>
 
   <article class="mini flip rv row" tabindex="0" role="button">
- <div class="in3d">
-  <div class="face front">
-    <div class="ph emo">🏟️</div>
-    <div class="tx">
-      <span class="tag t-sa">🇸🇦 السعودية</span>
-      <h4>ملعب أرامكو في الخبر يفتح أبوابه للزوار</h4>
-      <p>جولات مرشدة حتى ٩ ديسمبر. <span style="color:var(--accent-2)">↻</span></p>
+   <div class="in3d">
+    <div class="face front">
+      <div class="ph emo">💉</div>
+      <div class="tx">
+        <span class="tag t-sci">🔬 علوم وطب</span>
+        <h4>لقاحان تحت التجربة ضد سلالة إيبولا جديدة</h4>
+        <p>الصحة العالمية تأذن بتجربتهما في الكونغو. <span style="color:var(--accent-2)">↻</span></p>
+      </div>
     </div>
-  </div>
-  <div class="face back">
-    <h5>التفاصيل</h5>
-    <p>بدأت في ١٤ نوفمبر جولات في الملعب الجديد (٤٧ ألف مقعد) من الخامسة إلى الثامنة مساءً، تشمل غرف الملابس ونفق اللاعبين وأرض الملعب وقاعة المؤتمرات الصحفية، بالعربية والإنجليزية، بـ١٦٥ ريالاً للشخص.</p>
-    <div class="links"><a href="https://whatsonsaudiarabia.com/2026/11/things-to-look-forward-to-saudi-arabia-november-2026/">What's On ←</a></div>
-  </div>
- </div>
-</article>
+    <div class="face back">
+      <h5>التفاصيل</h5>
+      <p>أجازت المنظمة تجربة لقاح أكسفورد ولقاح «موديرنا» ضد فيروس بونديبوغيو، المسبّب لتفشٍّ أُعلن في مايو وتجاوزت إصاباته ٩٥٠٠ حالة. لا يوجد حتى الآن لقاح معتمد لهذه السلالة، فهذه أول خطوة نحوه بإذن الله.</p>
+      <div class="links"><a href="https://www.positive.news/society/good-news-stories-from-week-46-of-2026/">بوزيتيف نيوز ←</a></div>
+    </div>
+   </div>
+  </article>
 </div>
 
-<!-- ===== EXTRA: reflection ===== -->
+<!-- ===== EXTRA (number) ===== -->
 <section class="extra rv">
-  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/The_Ridges_of_Sarawat_Mountains.jpg/1280px-The_Ridges_of_Sarawat_Mountains.jpg" alt="جبال السروات"></div>
+  <div class="ph"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/World_Health_Organization_Headquarters_and_Flag.jpg/960px-World_Health_Organization_Headquarters_and_Flag.jpg" alt="مقر منظمة الصحة العالمية في جنيف"></div>
   <div class="tx">
-    <div class="lab">🤲 تأمل</div>
-    <p>بينما يتفاوض العالم في أنطاليا على مستقبل الأرض، نتذكّر أنها أمانة بين أيدينا، قال رسول الله ﷺ:</p>
-    <p class="q">«إنّ الدنيا حلوةٌ خضِرة، وإنّ الله مستخلفكم فيها، فينظر كيف تعملون»</p>
-    <p>رواه مسلم. فالماء الذي لا نُسرف فيه، والأرض التي لا نُفسدها، عملٌ يُكتب لنا.</p>
-    <div class="cr">صورة: Wajahatmr · CC BY-SA 3.0 · ويكيميديا</div>
+    <div class="lab">🔢 رقم الأسبوع</div>
+    <div class="n"><span class="count" data-to="63">0</span></div>
+    <p>دولة تخلّصت من مرض مداري مهمل واحد على الأقل حتى يونيو ٢٠٢٦، بعد أن كانت ٤٢ في نهاية ٢٠٢٠، وفق تقرير لمنظمة الصحة العالمية هذا الأسبوع. وتراجعت حالات مرض النوم ٩٨٪ منذ ١٩٩٩، وهبطت دودة غينيا إلى ١٠ حالات بشرية فقط في ٢٠٢٥.</p>
+    <div class="cr">المصدر: <a href="https://www.who.int/publications/i/item/9789240126220">منظمة الصحة العالمية</a> · صورة: United States Mission Geneva · CC BY 2.0</div>
   </div>
 </section>
 
 <!-- ===== CLOSING ===== -->
 <footer class="close">
   <div class="orn">✦ ۞ ✦</div>
-  <p class="v">﴿وَمَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ ۚ وَإِنَّ الدَّارَ الْآخِرَةَ لَهِيَ الْحَيَوَانُ ۚ لَوْ كَانُوا يَعْلَمُونَ﴾</p>
-  <p class="ref">العنكبوت: ٦٤</p>
+  <p class="v">﴿الْمَالُ وَالْبَنُونَ زِينَةُ الْحَيَاةِ الدُّنْيَا ۖ وَالْبَاقِيَاتُ الصَّالِحَاتُ خَيْرٌ عِندَ رَبِّكَ ثَوَابًا وَخَيْرٌ أَمَلًا﴾</p>
+  <p class="ref">الكهف: ٤٦</p>
   <p class="bye">نلقاكم الجمعة القادمة بإذن الله</p>
 </footer>
 
 </div>
+
 <script>
 (function(){
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
